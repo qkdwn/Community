@@ -14,8 +14,16 @@ import React, { useState } from "react"
 //1. 가정문: if-else, switch // 삼항 연산자
 //2. 반복문: for // map
 
-function Test() {
-  const [Temp, setTemp] = useState(0)
+function Upload() {
+  const [Content, setContent] = React.useState("");
+  const [ContentList, setContentList] = React.useState([]);
+
+  const onSubmit = () => {
+    let tempArr =[...ContentList];
+    tempArr.push(Content);
+    setContentList([...tempArr]);
+    setContent("");
+  }
   /*
   1. 첫번째 인자 : 변수의 이름
   2. 두번째 인자 : state를 바꿔주는 함수
@@ -28,10 +36,37 @@ function Test() {
   */
   return (
     <div>
-      <h1 className="test">Test 컴포넌트입니다!</h1>
-      {Temp}
-      <button onClick={() => setTemp(Temp + 1)}>증가</button>
-    </div>
+      {ContentList.map((ContentVisibilityAutoStateChangeEvent, idx)=> {
+        return (
+          <div
+          key={idx}
+          style={{
+            width: "100%",
+            marginLeft: "1rem",
+          }}
+          >
+            내용 : {content}
+            <hr />
+          </div>
+        )
+      })}
+      <div>
+      <input
+        type="text"
+        value={Content}
+        onChange={(e) => {setContent(e.currentTarget.value)
+        }}
+    />
+    <button
+      onClick={() => {
+        onSubmit();
+      }}
+      style={{ marginTop: "1rem"}}
+    >
+      제출!
+    </button>
+  </div>
+  </div>
   )
 }
 
