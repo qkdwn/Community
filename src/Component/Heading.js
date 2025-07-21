@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from 'react-router-dom';
+
 
 function Heading() {
   return (
@@ -12,8 +14,8 @@ function Heading() {
     >
       <h1>Hello, React!</h1>
       <Link to="/">Home</Link>
-      <Link to="/upload">Home</Link>
-      <Link to="/list">Home</Link>
+      <Link to="/upload">Upload</Link>
+      <Link to="/list">list</Link>
     </div>
   )
 }

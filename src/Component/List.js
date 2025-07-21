@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 function List(props) {  
   return (
     <div>
-      {props.ContentList.map((Content, idx)=> {
+      {props.ContentList.map((content, idx)=> {
         return (
           <div
           key={idx}
