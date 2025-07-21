@@ -4,10 +4,15 @@ import axios from "axios"
 function List(props) {
   const [Text, setText] =useState("")
   useEffect(() => {
+
+    let body = {
+      text : "Hello",
+    }
+    
     axios
       .get("/api/test")
-      .then((response) => {
-        console.log(response)
+      .then((응답) => {
+        console.log(응답)
         setText(응답.data.txt);
       })
       .catch((error) => {
