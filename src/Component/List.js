@@ -1,20 +1,9 @@
 import React, { useState } from 'react'
 
-function List() {
-
-    const [Content, setContent] = React.useState("");
-    const [ContentList, setContentList] = React.useState([]);
-  
-    const onSubmit = () => {
-      let tempArr =[...ContentList];
-      tempArr.push(Content);
-      setContentList([...tempArr]);
-      setContent("");
-    }
-  
+function List(props) {  
   return (
     <div>
-      {ContentList.map((ContentVisibilityAutoStateChangeEvent, idx)=> {
+      {props.ContentList.map((Content, idx)=> {
         return (
           <div
           key={idx}
@@ -22,7 +11,7 @@ function List() {
             width: "100%",
             marginLeft: "1rem",
           }}
-          >
+        >
             내용 : {content}
             <hr />
           </div>

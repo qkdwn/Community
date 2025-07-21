@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import "./App.css"
+import React, { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 
 
@@ -9,12 +8,14 @@ import List from "./Component/List"
 import Upload from "./Component/Upload"
 
 function App() {
+    const [ContentList, setContentList] = React.useState([]);
+  
   return (
     <>
     <Heading />
     <Routes>
-      <Route path="/List" element={<List />} />
-      <Route path="/Upload" element={<Upload />} />
+      <Route path="/List" element={<List ContentList = { ContentList } setContentList = { setContentList }/>} />
+      <Route path="/Upload" element={<Upload ContentList = { ContentList } setContentList = { setContentList }/>} />
     </Routes>
     </>
   )

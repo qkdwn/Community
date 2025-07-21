@@ -1,32 +1,19 @@
 import React, { useState } from 'react'
 
-function Upload() {
+function Upload(props) {
   const [Content, setContent] = React.useState("");
-  const [ContentList, setContentList] = React.useState([]);
 
   const onSubmit = () => {
-    let tempArr =[...ContentList];
+    let tempArr =[...props.ContentList];
     tempArr.push(Content);
-    setContentList([...tempArr]);
+    props.setContentList([...tempArr]);
     setContent("");
   }
 
   return (
     <div>
-      <input
-        type="text"
-        value={Content}
-        onChange={(e) => {setContent(e.currentTarget.value)
-        }}
-    />
-    <button
-      onClick={() => {
-        onSubmit();
-      }}
-      style={{ marginTop: "1rem"}}
-    >
-      제출!
-    </button>
+      <input type="text" value={Content} onChange={(e) => {console.log(e.currentTarget.value)}}/> 
+      <button onClick={()=> {onSubmit();}} style={{ marginTop: "1rem" }}>제출!</button>
   </div>
   )
 }
