@@ -27,6 +27,7 @@ function Upload(props) {
         value={Content}
         onChange={(e) => {
           console.log(e.currentTarget.value)
+          setContent(e.currentTarget.value)
         }}
       />
       <button
