@@ -11,9 +11,9 @@ function List(props) {
     
     axios
       .get("/api/test")
-      .then((응답) => {
-        console.log(응답)
-        setText(응답.data.txt);
+      .then((res) => {
+        console.log(res)
+        setText(res.data.txt);
       })
       .catch((error) => {
         alert("요청실패")
